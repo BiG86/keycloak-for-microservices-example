@@ -1,0 +1,120 @@
+server:
+  port: ${SERVER_PORT:8080}
+management:
+  server:
+    port: ${MANAGEMENT_PORT:9090}
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+          - "health"
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  info:
+    git:
+      mode: full
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  metrics:
+    enabled: true
+logging:
+  level:
+    root: ${LOGGING_LEVEL:INFO}
+ciam:
+  shared:
+    keycloak:
+      client:
+        url: ${AUTH_BASE_URL}
+        realm: ${BOOKMANAGER_AUTH_REALM}
+        grant_type: client_credentials
+        id: ${BOOKMANAGER_AUTH_CLIENT}
+        secret: ${BOOKMANAGER_KEYCLOAK_SECRET}
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: ${FEIGN_CLIENT_CONNECTION_TIMEOUT:5000}
+        readTimeout: ${FEIGN_CLIENT_READ_TIMEOUT:5000}
+        loggerLevel: ${FEIGN_CLIENT_LOGGER_LEVEL:basic}
+validation:
+  regex:
+    code: ${CODE_REGEX:^[0-9A-Za-z-_]+$}
+    description-fe: ${DESCRIPTION_FE_REGEX:^[0-9A-Za-zÀ-ÿ\s-_.,\'\"]*$}
+    description-be: ${DESCRIPTION_BE_REGEX:^((&#\d{1,2};)*[0-9A-Za-zÀ-ÿ\s-_.,\'\"]*)+$}
+    domain: ${DOMAIN_REGEX:((?:(?:(?:http)s?:)?\/\/)?(?:(?:[a-zA-Z0-9]+)\.?)*(?:(?:[a-zA-Z0-9]+))\.[a-zA-Z0-9]{2,3})}
+pagination:
+  default:
+    page-size: ${PAGINATION_DEFAULT_PAGE_SIZE:10}
+    order-by: ${PAGINATION_DEFAULT_ORDER_BY:id}
+    order-direction: ${PAGINATION_DEFAULT_ORDER_DIRECTION:DESC}
+spring:
+  banner:
+    location: book-manager-banner.logo
+  datasource:
+    url: ${DB_CONN:jdbc:mysql://localhost:3306/bookmanager?useSSL=false&useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:password}
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimumIdle: ${DB_POOL_MIN:3}
+      maximumPoolSize: ${DB_POOL_MAX:10}
+      connectionTimeout: ${DB_CONNECTION_TIMEOUT:5000}
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  jpa:
+    show-sql: ${SHOW_SQL:false}
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${ISSUER-URI:https://login2.devops.aruba.it/auth/realms/aruba-int}
+  cache:
+    caffeine:
+      spec: expireAfterWrite=${CAFFEINE_EXPIRATION_TIMEOUT:180s}
+circuit-breaker:
+  otp-manager-admin:
+    service:
+      timeout-ms: ${CC_CIRCUITBREAKER_SERVICE_TIMEOUT:7000}
+      failure-rate-threshold: ${CC_CIRCUITBREAKER_SERVICE_FAILURE_RATE_THRESHOLD:50}
+      slow-call-rate-threshold: ${CC_CIRCUITBREAKER_SERVICE_SHOW_CALL_RATE_THRESHOLD:100}
+      slow-call-duration-threshold-ms: ${CC_CIRCUITBREAKER_SERVICE_SHOW_CALL_DURATION_THRESHOLD:2000}
+      max-wait-duration-in-half-open-state: ${CC_CIRCUITBREAKER_MAX_SERVICE_WAIT_DURATION_IN_HALFOPEN_STATE:60}
+      wait-duration-in-open-state: ${CC_CIRCUITBREAKER_SERVICE_WAIT_DURATION_IN_HALFOPEN_STATE:60000}
+      permitted-number-of-calls-in-half-open-state: ${CC_CIRCUITBREAKER_SERVICE_N_OF_CALL_IN_HALFOPEN_STATE:5}
+      sliding-window-size: ${CC_CIRCUITBREAKER_SERVICE_SLIDING_WINDOWS_SIZE:50}
+      minimum-number-of-calls: ${CC_CIRCUITBREAKER_SERVICE_MIN_NUMBER_OF_CALL:5}
+      automatic-transition-to-half-open-enabled: ${CC_CIRCUITBREAKER_SERVICE_AUTOMATIC_TRANSITION_TO_HALFOPEN_STATE:true}
+    ws-client:
+      timeout-ms: ${CC_CIRCUITBREAKER_WS_CLIENT_TIMEOUT:7000}
+      failure-rate-threshold: ${CC_CIRCUITBREAKER_WS_CLIENT_FAILURE_RATE_THRESHOLD:50}
+      slow-call-rate-threshold: ${CC_CIRCUITBREAKER_WS_CLIENT_SHOW_CALL_RATE_THRESHOLD:100}
+      slow-call-duration-threshold-ms: ${CC_CIRCUITBREAKER_WS_CLIENT_SHOW_CALL_DURATION_THRESHOLD:2000}
+      max-wait-duration-in-half-open-state: ${CC_CIRCUITBREAKER_WS_CLIENT_MAX_WAIT_DURATION_IN_HALFOPEN_STATE:60}
+      wait-duration-in-open-state: ${CC_CIRCUITBREAKER_WS_CLIENT_WAIT_DURATION_IN_HALFOPEN_STATE:60000}
+      permitted-number-of-calls-in-half-open-state: ${CC_CIRCUITBREAKER_WS_CLIENT_N_OF_CALL_IN_HALFOPEN_STATE:5}
+      sliding-window-size: ${CC_CIRCUITBREAKER_WS_CLIENT_SLIDING_WINDOWS_SIZE:50}
+      minimum-number-of-calls: ${CC_CIRCUITBREAKER_WS_CLIENT_MIN_NUMBER_OF_CALL:5}
+      automatic-transition-to-half-open-enabled: ${CC_CIRCUITBREAKER_WS_CLIENT_AUTOMATIC_TRANSITION_TO_HALFOPEN_STATE:true}
+    db-connector:
+      timeout-ms: ${CC_CIRCUITBREAKER_DB_CONNECTOR_TIMEOUT:7000}
+      failure-rate-threshold: ${CC_CIRCUITBREAKER_DB_CONNECTOR_FAILURE_RATE_THRESHOLD:50}
+      slow-call-rate-threshold: ${CC_CIRCUITBREAKER_DB_CONNECTOR_SHOW_CALL_RATE_THRESHOLD:100}
+      slow-call-duration-threshold-ms: ${CC_CIRCUITBREAKER_DB_CONNECTOR_SHOW_CALL_DURATION_THRESHOLD:2000}
+      max-wait-duration-in-half-open-state: ${CC_CIRCUITBREAKER_DB_CONNECTOR_MAX_WAIT_DURATION_IN_HALFOPEN_STATE:60}
+      wait-duration-in-open-state: ${CC_CIRCUITBREAKER_DB_CONNECTOR_WAIT_DURATION_IN_HALFOPEN_STATE:60000}
+      permitted-number-of-calls-in-half-open-state: ${CC_CIRCUITBREAKER_DB_CONNECTOR_N_OF_CALL_IN_HALFOPEN_STATE:5}
+      sliding-window-size: ${CC_CIRCUITBREAKER_DB_CONNECTOR_SLIDING_WINDOWS_SIZE:50}
+      minimum-number-of-calls: ${CC_CIRCUITBREAKER_DB_CONNECTOR_MIN_NUMBER_OF_CALL:5}
+      automatic-transition-to-half-open-enabled: ${CC_CIRCUITBREAKER_DB_CONNECTOR_AUTOMATIC_TRANSITION_TO_HALFOPEN_STATE:true}

@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  book-manager-mysql:
+    image: percona/percona-server:5.7
+    container_name: book-manager-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - book-network
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: changeme
+  book-manager-be:
+    image:
+networks:
+  book-network:
+    name: book-network
