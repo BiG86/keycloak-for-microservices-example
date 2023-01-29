@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * JPA interface to manage Algorithm Entities.
  */
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Repository;
 public interface BookRepository extends JpaRepository<Book, Long> {
 
 
-    Page<Book> findByIsbn(@Param("isbn") String isbn);
+    List<Book> findByIsbn(@Param("isbn") String isbn);
 
     /**
      * Find all algorithms

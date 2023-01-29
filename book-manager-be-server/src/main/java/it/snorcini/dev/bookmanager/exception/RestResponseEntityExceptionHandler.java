@@ -1,6 +1,5 @@
 package it.snorcini.dev.bookmanager.exception;
 
-import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import it.snorcini.dev.bookmanager.dto.BookManagerBaseResponse;
 import it.snorcini.dev.bookmanager.result.BookManagerResults;
 import lombok.extern.slf4j.Slf4j;
@@ -51,29 +50,6 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     }
 
     /**
-     * Handler for the CallNotPermittedException raised by circuit breakers.
-     * Replies always with 200 OK.
-     *
-     * @param ex      The intercepted exception
-     * @param request Web request
-     * @return Response entity
-     */
-    @ExceptionHandler(value = CallNotPermittedException.class)
-    protected ResponseEntity<Object> handleCallNotPermitted(final CallNotPermittedException ex,
-                                                            final WebRequest request) {
-        logger.error("Circuit breaker open", ex);
-        return handleExceptionInternal(ex,
-                new BookManagerBaseResponse(
-                        BookManagerResults.CIRCUIT_BREAKER_OPEN.getResultCode(),
-                        BookManagerResults.CIRCUIT_BREAKER_OPEN.getResultMessage(),
-                        null
-                ),
-                new HttpHeaders(),
-                HttpStatus.OK,
-                request);
-    }
-
-    /**
      * Handler for ConstraintViolationException.
      * Replies always with 400 Bad Request.
      *
@@ -93,7 +69,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     }
 
     /**
-     * Handler for OtpManagerServiceException.
+     * Handler for BookManagerServiceException.
      * Replies always with 200 OK.
      *
      * @param exception the intercepted exception

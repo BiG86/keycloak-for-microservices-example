@@ -83,38 +83,3 @@ spring:
   cache:
     caffeine:
       spec: expireAfterWrite=${CAFFEINE_EXPIRATION_TIMEOUT:180s}
-circuit-breaker:
-  otp-manager-admin:
-    service:
-      timeout-ms: ${CC_CIRCUITBREAKER_SERVICE_TIMEOUT:7000}
-      failure-rate-threshold: ${CC_CIRCUITBREAKER_SERVICE_FAILURE_RATE_THRESHOLD:50}
-      slow-call-rate-threshold: ${CC_CIRCUITBREAKER_SERVICE_SHOW_CALL_RATE_THRESHOLD:100}
-      slow-call-duration-threshold-ms: ${CC_CIRCUITBREAKER_SERVICE_SHOW_CALL_DURATION_THRESHOLD:2000}
-      max-wait-duration-in-half-open-state: ${CC_CIRCUITBREAKER_MAX_SERVICE_WAIT_DURATION_IN_HALFOPEN_STATE:60}
-      wait-duration-in-open-state: ${CC_CIRCUITBREAKER_SERVICE_WAIT_DURATION_IN_HALFOPEN_STATE:60000}
-      permitted-number-of-calls-in-half-open-state: ${CC_CIRCUITBREAKER_SERVICE_N_OF_CALL_IN_HALFOPEN_STATE:5}
-      sliding-window-size: ${CC_CIRCUITBREAKER_SERVICE_SLIDING_WINDOWS_SIZE:50}
-      minimum-number-of-calls: ${CC_CIRCUITBREAKER_SERVICE_MIN_NUMBER_OF_CALL:5}
-      automatic-transition-to-half-open-enabled: ${CC_CIRCUITBREAKER_SERVICE_AUTOMATIC_TRANSITION_TO_HALFOPEN_STATE:true}
-    ws-client:
-      timeout-ms: ${CC_CIRCUITBREAKER_WS_CLIENT_TIMEOUT:7000}
-      failure-rate-threshold: ${CC_CIRCUITBREAKER_WS_CLIENT_FAILURE_RATE_THRESHOLD:50}
-      slow-call-rate-threshold: ${CC_CIRCUITBREAKER_WS_CLIENT_SHOW_CALL_RATE_THRESHOLD:100}
-      slow-call-duration-threshold-ms: ${CC_CIRCUITBREAKER_WS_CLIENT_SHOW_CALL_DURATION_THRESHOLD:2000}
-      max-wait-duration-in-half-open-state: ${CC_CIRCUITBREAKER_WS_CLIENT_MAX_WAIT_DURATION_IN_HALFOPEN_STATE:60}
-      wait-duration-in-open-state: ${CC_CIRCUITBREAKER_WS_CLIENT_WAIT_DURATION_IN_HALFOPEN_STATE:60000}
-      permitted-number-of-calls-in-half-open-state: ${CC_CIRCUITBREAKER_WS_CLIENT_N_OF_CALL_IN_HALFOPEN_STATE:5}
-      sliding-window-size: ${CC_CIRCUITBREAKER_WS_CLIENT_SLIDING_WINDOWS_SIZE:50}
-      minimum-number-of-calls: ${CC_CIRCUITBREAKER_WS_CLIENT_MIN_NUMBER_OF_CALL:5}
-      automatic-transition-to-half-open-enabled: ${CC_CIRCUITBREAKER_WS_CLIENT_AUTOMATIC_TRANSITION_TO_HALFOPEN_STATE:true}
-    db-connector:
-      timeout-ms: ${CC_CIRCUITBREAKER_DB_CONNECTOR_TIMEOUT:7000}
-      failure-rate-threshold: ${CC_CIRCUITBREAKER_DB_CONNECTOR_FAILURE_RATE_THRESHOLD:50}
-      slow-call-rate-threshold: ${CC_CIRCUITBREAKER_DB_CONNECTOR_SHOW_CALL_RATE_THRESHOLD:100}
-      slow-call-duration-threshold-ms: ${CC_CIRCUITBREAKER_DB_CONNECTOR_SHOW_CALL_DURATION_THRESHOLD:2000}
-      max-wait-duration-in-half-open-state: ${CC_CIRCUITBREAKER_DB_CONNECTOR_MAX_WAIT_DURATION_IN_HALFOPEN_STATE:60}
-      wait-duration-in-open-state: ${CC_CIRCUITBREAKER_DB_CONNECTOR_WAIT_DURATION_IN_HALFOPEN_STATE:60000}
-      permitted-number-of-calls-in-half-open-state: ${CC_CIRCUITBREAKER_DB_CONNECTOR_N_OF_CALL_IN_HALFOPEN_STATE:5}
-      sliding-window-size: ${CC_CIRCUITBREAKER_DB_CONNECTOR_SLIDING_WINDOWS_SIZE:50}
-      minimum-number-of-calls: ${CC_CIRCUITBREAKER_DB_CONNECTOR_MIN_NUMBER_OF_CALL:5}
-      automatic-transition-to-half-open-enabled: ${CC_CIRCUITBREAKER_DB_CONNECTOR_AUTOMATIC_TRANSITION_TO_HALFOPEN_STATE:true}

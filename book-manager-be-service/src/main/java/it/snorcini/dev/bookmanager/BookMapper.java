@@ -1,4 +1,4 @@
-package it.snorcini.dev.bookmanager.mapper;
+package it.snorcini.dev.bookmanager;
 
 import it.snorcini.dev.bookmanager.dto.BookDTO;
 import it.snorcini.dev.bookmanager.dto.DetailBookDTO;

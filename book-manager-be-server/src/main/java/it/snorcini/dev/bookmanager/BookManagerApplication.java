@@ -8,8 +8,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * Main executable class.
- * Confluence project references:
- * https://confluence.aruba.it/display/ACC/OTP+Manager+Admin
  */
 @SpringBootApplication(exclude = {
         MultipartAutoConfiguration.class

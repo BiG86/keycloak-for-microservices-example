@@ -31,15 +31,15 @@ import javax.validation.constraints.NotNull;
 public class BookDTO extends AbstractBaseDTO {
 
     @Valid
-    @NotNull(message = BookManagerValidationErrors.CODE_DESCRIPTION_DTO_NULL)
+    @NotNull(message = BookManagerValidationErrors.ISBN_NULL)
     protected String isbn;
 
     @Valid
-    @NotNull(message = BookManagerValidationErrors.OTP_SIZE_NULL)
+    @NotNull(message = BookManagerValidationErrors.TITLE_NULL)
     protected String title;
 
     @Valid
-    @NotNull(message = BookManagerValidationErrors.OTP_SIZE_NULL)
+    @NotNull(message = BookManagerValidationErrors.AUTHOR_NULL)
     protected String author;
 
     /**

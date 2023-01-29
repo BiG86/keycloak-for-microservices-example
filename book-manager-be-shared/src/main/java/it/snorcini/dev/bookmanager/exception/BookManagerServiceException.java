@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * This exception is throwable by any OtpManagerAdmin service.
+ * This exception is throwable by any BookManager service.
  */
 @Getter
 @Setter

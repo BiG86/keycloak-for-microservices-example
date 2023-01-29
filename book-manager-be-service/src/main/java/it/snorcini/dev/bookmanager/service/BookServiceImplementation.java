@@ -5,7 +5,7 @@ import it.snorcini.dev.bookmanager.dto.BookListResponse;
 import it.snorcini.dev.bookmanager.dto.BookManagerBaseResponse;
 import it.snorcini.dev.bookmanager.dto.UpdateBookDTO;
 import it.snorcini.dev.bookmanager.exception.BookManagerServiceException;
-import it.snorcini.dev.bookmanager.mapper.BookMapper;
+import it.snorcini.dev.bookmanager.BookMapper;
 import it.snorcini.dev.bookmanager.result.BookManagerResults;
 import it.snorcini.dev.bookmanager.entity.Book;
 import it.snorcini.dev.bookmanager.repository.BookRepository;

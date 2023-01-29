@@ -32,7 +32,7 @@ public class UpdateBookDTO extends BookDTO {
     /**
      * Contains the value of primary key identify the item on DB.
      */
-    @NotNull(message = BookManagerValidationErrors.ALGORITHM_ID_NULL)
+    @NotNull(message = BookManagerValidationErrors.BOOK_ID_NULL)
     protected Long id;
 
     /**
