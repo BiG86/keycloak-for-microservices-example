@@ -13,7 +13,7 @@ import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 /**
- * DTO returned to the caller, contains a list of Algorithms.
+ * DTO returned to the caller, contains a list of Books.
  * <p>
  * Methods:
  * - constructor

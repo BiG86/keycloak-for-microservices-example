@@ -71,11 +71,6 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>${spring-cloud-starter-openfeign.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
         </dependency>
@@ -112,10 +107,6 @@
             <artifactId>jjwt</artifactId>
             <version>${jjwt.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -192,7 +183,14 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -205,33 +203,30 @@
                             <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <mainClass>it.aruba.ciam.changecontact.ChangeContactApi</mainClass>
+                            <mainClass>it.snorcini.dev.bookmanager.BookManagerApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>${maven-antrun-plugin.version}</version>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
-                        <configuration>
-                            <target>
-                                <copy file="target/${project.artifactId}-${project.version}.jar"
-                                      tofile="../deployments/lib/${project.artifactId}-${project.version}.jar"/>
-                                <copy file="src/main/resources/application.yml"
-                                      tofile="../deployments/conf/application.yml"/>
-                                <copy file="src/main/resources/logback-spring.xml"
-                                      tofile="../deployments/conf/logback-spring.xml"/>
-                            </target>
-                        </configuration>
+                        <id>default</id>
                         <goals>
-                            <goal>run</goal>
+                            <goal>build</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <repository>snorc/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>

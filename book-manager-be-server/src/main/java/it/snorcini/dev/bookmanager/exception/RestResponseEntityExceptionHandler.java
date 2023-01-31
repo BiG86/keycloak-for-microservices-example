@@ -60,7 +60,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(value = {ConstraintViolationException.class})
     protected ResponseEntity<Object> handleGenericError(final ConstraintViolationException exception,
                                                         final WebRequest request) {
-        // 1. Returns the response object initialized with the error result code and result infos
+        // 1. Returns the response object initialized with the error result code and result info
         logger.error("Validation failed: Bad request exception", exception);
         return instantiateResponse(exception,
                 exception.getConstraintViolations().stream().map(ConstraintViolation::getMessage)
@@ -82,7 +82,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
             IllegalAccessException,
             InvocationTargetException,
             InstantiationException {
-        // 1. Returns the response object initialized with the error result code and result infos
+        // 1. Returns the response object initialized with the error result code and result info
         logger.error("Managed exception has been caught", exception);
         return handleExceptionInternal(exception,
                 exception.getResponseClass()

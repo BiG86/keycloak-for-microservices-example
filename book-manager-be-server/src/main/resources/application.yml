@@ -27,15 +27,6 @@ management:
 logging:
   level:
     root: ${LOGGING_LEVEL:INFO}
-ciam:
-  shared:
-    keycloak:
-      client:
-        url: ${AUTH_BASE_URL}
-        realm: ${BOOKMANAGER_AUTH_REALM}
-        grant_type: client_credentials
-        id: ${BOOKMANAGER_AUTH_CLIENT}
-        secret: ${BOOKMANAGER_KEYCLOAK_SECRET}
 feign:
   client:
     config:
@@ -60,7 +51,7 @@ spring:
   datasource:
     url: ${DB_CONN:jdbc:mysql://localhost:3306/bookmanager?useSSL=false&useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC}
     username: ${DB_USER:root}
-    password: ${DB_PASSWORD:password}
+    password: ${DB_PASSWORD:changeme}
     driverClassName: com.mysql.cj.jdbc.Driver
     hikari:
       minimumIdle: ${DB_POOL_MIN:3}
@@ -79,7 +70,26 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${ISSUER-URI:https://login2.devops.aruba.it/auth/realms/aruba-int}
-  cache:
-    caffeine:
-      spec: expireAfterWrite=${CAFFEINE_EXPIRATION_TIMEOUT:180s}
+          issuer-uri: ${ISSUER-URI:http://localhost:8080/auth/realms/book}
+
+keycloak:
+  realm: ${AUTH_REALM:book}
+  auth-server-url: ${AUTH_URL:http://localhost:8080/auth}
+  ssl-required: external
+  resource: ${AUTH_CLIENT:book-manager-be}
+  enabled: true
+  cors: true
+  use-resource-role-mappings: false
+  security-constraints[0]:
+    auth-roles[0]: ${AUTH_ROLE_ADMIN:ROLE_ADMIN_BOOK_MANAGER}
+    auth-roles[1]: ${AUTH_ROLE_READ:ROLE_RO_BOOK_MANAGER}
+    security-collections[0]:
+      patterns[0]: /api/v1/*
+      methods: GET
+  security-constraints[1]:
+    auth-roles[0]: ${AUTH_ROLE_ADMIN:ROLE_ADMIN_BOOK_MANAGER}
+    security-collections[0]:
+      patterns[0]: /api/v1/*
+      omitted-methods: GET
+  credentials:
+    secret: ${KEYCLOAK_SECRET}

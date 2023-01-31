@@ -8,12 +8,23 @@ services:
       - "3306:3306"
     networks:
       - book-network
+    volumes:
+      - ./init-script.sql:/docker-entrypoint-initdb.d/init.sql
+      - volume-percona:/var/lib/mysql
+    command: --init-file /docker-entrypoint-initdb.d/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_USER: mysql
       MYSQL_PASSWORD: changeme
   book-manager-be:
-    image:
+    image: snorc/book-manager-be-server:1.0.0
+    container_name: book-manager-be
+    restart: always
+    ports:
+      - "8081:8080"
+volumes:
+  volume-percona:
+    name: book-manager-mysql
 networks:
   book-network:
     name: book-network

@@ -9,24 +9,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DetailBookDTOTest {
 
-    private DetailBookDTO detailAlgorithmDTO;
+    private DetailBookDTO detailBookDTO;
 
     @Test
     void testDetailBookDTO01() {
-        detailAlgorithmDTO = new DetailBookDTO();
-        String toStringed = detailAlgorithmDTO.toString();
+        detailBookDTO = new DetailBookDTO();
+        String toStringed = detailBookDTO.toString();
         assertThat(toStringed).overridingErrorMessage("This element should not be null").isNotNull();
     }
 
     @Test
     void testDetailBookDTO02() {
         OffsetDateTime now = OffsetDateTime.now();
-        detailAlgorithmDTO = new DetailBookDTO(ActivitiesDTO.builder().dateInsert(OffsetDateTime.MIN).dateModify(now)
+        detailBookDTO = new DetailBookDTO(ActivitiesDTO.builder().dateInsert(OffsetDateTime.MIN).dateModify(now)
                 .lastUserModify("lastUserModify").build());
-        DetailBookDTO detailAlgorithmDTOSetter = new DetailBookDTO();
-        detailAlgorithmDTOSetter.setActivities(ActivitiesDTO.builder().dateInsert(OffsetDateTime.MIN).dateModify(now)
+        DetailBookDTO detailBookDTOSetter = new DetailBookDTO();
+        detailBookDTOSetter.setActivities(ActivitiesDTO.builder().dateInsert(OffsetDateTime.MIN).dateModify(now)
                 .lastUserModify("lastUserModify").build());
-        assertEquals(detailAlgorithmDTOSetter, detailAlgorithmDTO, "These objects should be equal");
+        assertEquals(detailBookDTOSetter, detailBookDTO, "These objects should be equal");
     }
 
 }

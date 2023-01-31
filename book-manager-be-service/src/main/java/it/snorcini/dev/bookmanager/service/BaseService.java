@@ -34,15 +34,15 @@ public abstract class BaseService {
      *
      * @param baseResponse the response to be populated
      * @param results      the result to be written into the response
-     * @param resultInfos  result message list containing dynamic contents
+     * @param resultInfo  result message list containing dynamic contents
      * @return The populated response
      */
     protected BookManagerBaseResponse setOperationResult(@Valid final BookManagerBaseResponse baseResponse,
                                                              final BookManagerResults results,
-                                                             final List<String> resultInfos) {
+                                                             final List<String> resultInfo) {
         baseResponse.setResultCode(results.getResultCode());
         baseResponse.setResultMessage(results.getResultMessage());
-        baseResponse.setResultInfo(resultInfos);
+        baseResponse.setResultInfo(resultInfo);
         return baseResponse;
     }
 
