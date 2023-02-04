@@ -59,6 +59,7 @@ public class BookServiceImplementation extends BaseService implements BookServic
                                                      final String username)
             throws BookManagerServiceException {
         log.debug("BookServiceImplementation.saveBook[book = {}]", insertBookDTO);
+
         // 1. Code duplicates validation
         isbnDuplicateCheck(insertBookDTO);
 

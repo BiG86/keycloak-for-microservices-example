@@ -27,13 +27,15 @@ public class SecurityConfiguration {
      */
     @Bean
     public SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
+        // Note:
+        // Note that the CSRf token is enabled for all requests (change it as you wish...)
         var corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowedHeaders(List.of("Authorization",
-                                                    "Content-Type",
-                                                    "Strict-Transport-Security",
-                                                    "X-Content-Security-Policy",
-                                                    "X-Frame-Options",
-                                                    "X-XSRF-TOKEN"));
+                "Content-Type",
+                "Strict-Transport-Security",
+                "X-Content-Security-Policy",
+                "X-Frame-Options",
+                "X-XSRF-TOKEN"));
         corsConfiguration.setAllowedOriginPatterns(List.of("*"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         corsConfiguration.setExposedHeaders(List.of("Authorization"));

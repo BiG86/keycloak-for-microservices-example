@@ -37,13 +37,6 @@ public abstract class BaseEntity implements Serializable {
     private Long id;
 
     /**
-     * Contains the code to identify the item.
-     */
-    @NotEmpty
-    @Column(name = "ISBN")
-    private String isbn;
-
-    /**
      * Date insert.
      */
     @NotNull

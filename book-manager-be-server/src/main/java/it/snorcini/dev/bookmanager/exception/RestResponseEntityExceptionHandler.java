@@ -124,7 +124,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
      * @return the instantiated BookManagerBaseResponse
      */
     protected BookManagerBaseResponse instantiateBookManagerBaseResponse(final BookManagerResults result,
-                                                                                 final List<String> resultInfo) {
+                                                                         final List<String> resultInfo) {
         // 1. Instantiates new BookManagerBaseResponse from Result and resultInfo
         return new BookManagerBaseResponse(result.getResultCode(), result.getResultMessage(), resultInfo);
     }

@@ -32,7 +32,6 @@ public interface BookMapper {
      * @param bookDTO the book data transfer object
      * @return the Book entity
      */
-    @Mapping(target = "isbn", source = "bookDTO.isbn")
     Book bookDtoToBook(BookDTO bookDTO,
                                       OffsetDateTime dateInsert,
                                       OffsetDateTime dateModify,
@@ -48,7 +47,6 @@ public interface BookMapper {
      * @param lastUserModify entity last user modify
      * @return the book entity with activities
      */
-    @Mapping(target = "isbn", source = "bookDTO.isbn")
     Book updateBookDTOToBookEntity(UpdateBookDTO bookDTO,
                                                   Long id,
                                                   OffsetDateTime dateInsert,

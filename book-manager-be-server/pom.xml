@@ -21,12 +21,12 @@
         <dependency>
             <groupId>it.snorcini.dev</groupId>
             <artifactId>book-manager-be-shared</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>it.snorcini.dev</groupId>
             <artifactId>book-manager-be-dto</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>it.snorcini.dev</groupId>
@@ -37,6 +37,11 @@
             <groupId>it.snorcini.dev</groupId>
             <artifactId>book-manager-be-service</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
@@ -69,6 +74,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring-cloud-starter-openfeign.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -184,11 +194,9 @@
             <version>${assertj-core.version}</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java.version}</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>

@@ -16,12 +16,42 @@ services:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_USER: mysql
       MYSQL_PASSWORD: changeme
+  keycloak:
+    image: quay.io/keycloak/keycloak:19.0.3
+    container_name: keycloak
+    restart: always
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+      - "5080:5005"
+    networks:
+      - book-network
+    command:
+      - --verbose
+      - --debug
+      - start-dev
+      - --import-realm
+      - --features-disabled admin2
+    volumes:
+      - ./realm-export-book.json:/opt/keycloak/data/import/book-realm.json
+    environment:
+      KC_HTTP_RELATIVE_PATH: /auth
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: changeme
+      KEYCLOAK_BASE_URL: http://keycloak:8080
+      KEYCLOAK_ISSUER: http://keycloak:8080
+      KEYCLOAK_CLIENTID: book-manager-be
   book-manager-be:
     image: snorc/book-manager-be-server:1.0.0
     container_name: book-manager-be
     restart: always
     ports:
-      - "8081:8080"
+      - "8081:8081"
+    depends_on:
+      - book-manager-mysql
+      - keycloak
+    networks:
+      - book-network
 volumes:
   volume-percona:
     name: book-manager-mysql
