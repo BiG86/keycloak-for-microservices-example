@@ -11,19 +11,16 @@
     </parent>
 
     <groupId>it.snorcini.dev</groupId>
-    <artifactId>book-manager-be</artifactId>
+    <artifactId>book-manager</artifactId>
     <version>1.0.0</version>
-    <name>snorcini-book-manager-be</name>
-    <description>Books Manager BE</description>
+    <name>snorcini-book-manager</name>
+    <description>Books Manager</description>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>book-manager-be-dto</module>
-        <module>book-manager-be-service-interface</module>
-        <module>book-manager-be-service</module>
-        <module>book-manager-be-shared</module>
-        <module>book-manager-be-server</module>
+        <module>book-manager-be</module>
+        <module>book-manager-fe</module>
     </modules>
 
     <properties>
