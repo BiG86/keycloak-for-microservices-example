@@ -1,0 +1,138 @@
+{
+  "language": {
+    "it": "Italian",
+    "en": "English"
+  },
+  "common": {
+    "name": "Name",
+    "update": "Update",
+    "remove": "Delete",
+    "add": "New",
+    "details": "Details",
+    "titleDeleteConfirm": "Confirm",
+    "descDeleteConfirm": "Do you confirm the cancellation?",
+    "ok": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "back": "Back",
+    "close": "Close details",
+    "attention": "Attention",
+    "vis": "View",
+    "updateOk": "Successful update!",
+    "welcome": "Welcome ",
+    "forbidden": "Unauthorized page",
+    "notfound": "This page does not exist",
+    "saveOk": "Saving successfully!",
+    "notFound": "Not found",
+    "new": "New",
+    "refresh": "Refresh",
+    "insDate": "Insert Date",
+    "updDate": "Update Date",
+    "user": "User",
+    "selBook": "Select book",
+    "book": "Select book",
+    "operationType": "Select type of operation",
+    "logout": "Logout"
+  },
+  "pagination": {
+    "element": "Items per page",
+    "search": "Search",
+    "10": "10",
+    "20": "20",
+    "50": "50",
+    "100": "100"
+  },
+  "column": {
+    "action": "Action"
+  },
+  "navbar": {
+    "sessions": "Sessions",
+    "filter": "SSO filter"
+  },
+  "header": {
+    "titleConfiguration": "Main tables"
+  },
+  "book": {
+    "title": "Books",
+    "subTitle": " ... ",
+    "isbn": "Isbn",
+    "author": "Author",
+    "title": "Title",
+    "modal": {
+      "new": "New Book",
+      "view": "Book Details",
+      "update": "Update Book"
+    }
+  },
+  "errors": {
+    "errorInsert": "Error during insert operation",
+    "errorUpdate": "Error during the update operation",
+    "errorDelete": "Error during the delete operation",
+    "errorData": "Data validation error",
+    "errorRoles": "Unauthorized user",
+    "fieldRequired": "Required field",
+    "name": "Name required",
+    "base": "Base address required",
+    "clientId": "Client ID required",
+    "clientSecret": "Client secret required",
+    "ssoStrategy": "SSO Strategy required",
+    "postLogoutURI": "Post Logout address required"
+  },
+  "bookmanger": {
+    "be": {
+      "id": {
+        "null": "The field id cannot be empty."
+      },
+      "isbn": {
+        "null": "The field isbn cannot be empty.",
+        "format": {
+          "wrong": "Unsupported format."
+        },
+        "outofrange": "Field too long."
+      },
+      "author": {
+        "format": {
+          "wrong": "Unsupported format."
+        },
+        "outofrange": "Field too long."
+      },
+      "title": {
+        "format": {
+          "wrong": "Unsupported format."
+        },
+        "outofrange": "Field too long."
+      },
+      "field": {
+        "invalid": "Unsupported value.",
+        "outofrange": "Field too long."
+      },
+      "book": {
+        "notfound": "Book not found.",
+        "isbn": {
+          "duplicated": "Isbn already registered."
+        }
+      },
+      "refresh": {
+        "bookmanager": {
+          "notfound": "No instance found."
+        },
+        "serviceinvocationerror": "Error while calling external service.",
+        "authenticationerror": "Authentication error.",
+        "uriconversionerror": "Error while URI conversion."
+      },
+      "persistence": {
+        "error": "Saving error."
+      },
+      "jwt": {
+        "parse": {
+          "error": "Jwt decode error."
+        },
+        "claims": {
+          "notfound": "JWT claim missing."
+        }
+      }
+    }
+  },
+  "book": "Book"
+}
+
