@@ -1,0 +1,49 @@
+<header>
+
+<div class="row p-3">
+  <div class="col-sm">
+    <div class="f24 text-center">BOOK MANAGER</div>
+  </div>
+  <div class="col-sm"></div>
+</div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onkeypress="">
+              {{'header.titleConfiguration' | translate}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/book">{{'book.title' | translate}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <ul class="navbar-nav mt-2 mt-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" *ngIf="showIT" id="navbarDropdownLangIT" role="button" data-bs-toggle="dropdown" aria-expanded="false" onkeypress="">
+            Italiano
+          </a>
+          <a class="nav-link dropdown-toggle" *ngIf="showEN" id="navbarDropdownLangEN" role="button" data-bs-toggle="dropdown" aria-expanded="false" onkeypress="">
+            English
+          </a>
+          <ul *ngIf="showIT" class="dropdown-menu" aria-labelledby="navbarDropdownIT">
+            <li><a class="dropdown-item" (click)="changePosition('en');">{{ 'language.en' | translate }}</a></li>
+          </ul>
+          <ul *ngIf="showEN" class="dropdown-menu" aria-labelledby="navbarDropdownEN">
+            <li><a class="dropdown-item" (click)="changePosition('it');">{{ 'language.it' | translate }}</a></li>
+          </ul>
+        </li>
+        <li class="nav-item menu-border-left">
+          <a class="nav-link" (click)="logout()" routerLink="#" routerLinkActive="active">{{ 'common.logout' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</header>

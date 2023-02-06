@@ -1,0 +1,8 @@
+{
+  "realm": "book",
+  "auth-server-url": "http://keycloak/auth",
+  "ssl-required": "external",
+  "resource": "book-manager-fe",
+  "public-client": true,
+  "confidential-port": 0
+}

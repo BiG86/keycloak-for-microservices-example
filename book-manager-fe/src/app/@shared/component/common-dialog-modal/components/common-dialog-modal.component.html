@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h5 mat-dialog-title>{{modalTitleKey | translate}}</h5>
+  <button type="button" class="close" (click)="closeModalHandler($event)" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<mat-dialog-content>
+  <div class="modal-dialog-body">
+    <div *ngIf="showErrorMessage" class="m-2 alert alert-danger break-word">
+      {{ errorMessage }}
+    </div>
+    <ng-content></ng-content>
+  </div>
+</mat-dialog-content>
+<div mat-dialog-actions class="modal-footer">
+  <button type="button" *ngIf="showCloseButton" (click)="closeModalHandler($event)"
+          class="btn btn-outline-primary" data-dismiss="modal">
+    {{buttonCloseKey | translate}}
+  </button>
+  <button type="button" *ngIf="showCancelButton" (click)="closeModalHandler($event)"
+          class="btn btn-danger-sm" data-dismiss="modal">
+    {{buttonCancelKey | translate}}
+  </button>
+  <button type="button" *ngIf="showConfirm" (click)="confirmModalHandler($event)"
+          [disabled]="!dirty && buttonConfirmKey!=='common.close'"
+          class="btn btn-outline-primary">{{buttonConfirmKey | translate}}</button>
+</div>

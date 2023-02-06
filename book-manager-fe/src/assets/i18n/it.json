@@ -1,0 +1,136 @@
+{
+  "language": {
+    "it": "Italiano",
+    "en": "Inglese"
+  },
+  "common": {
+    "name": "Nome",
+    "update": "Modifica",
+    "remove": "Elimina",
+    "add": "Nuovo",
+    "details": "Dettagli",
+    "titleDeleteConfirm": "Conferma",
+    "descDeleteConfirm": "Confermi la cancellazione ?",
+    "ok": "Conferma",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "back": "Indietro",
+    "close": "Chiudi",
+    "attention": "Attenzione",
+    "vis": "Visualizza",
+    "updateOk": "Aggiornamento effettuato con successo!",
+    "welcome": "Bevenuto",
+    "forbidden": "Pagina non autorizzata",
+    "notfound": "Pagina inesistente",
+    "saveOk": "Salvataggio effettuato con successo!",
+    "notFound": "Non inserito",
+    "new": "Nuova",
+    "refresh": "Aggiorna",
+    "insDate": "Data inserimento",
+    "updDate": "Data modifica",
+    "user": "Utente",
+    "selBook": "Seleziona il libro",
+    "book": "Selezionare un libro",
+    "logout": "Logout"
+  },
+  "pagination": {
+    "element": "Righe per pagina",
+    "search": "Ricerca",
+    "10": "10",
+    "20": "20",
+    "50": "50",
+    "100": "100"
+  },
+  "column": {
+    "action": "Azioni"
+  },
+  "navbar": {
+    "sessions": "Sessioni",
+    "filter": "Filtro SSO"
+  },
+  "header": {
+    "titleConfiguration": "Tabelle principali"
+  },
+  "book": {
+    "title": "Libri",
+    "subTitle": " ... ",
+    "isbn": "Isbn",
+    "author": "Autore",
+    "title": "Titolo",
+    "modal": {
+      "new": "Nuovo Libro",
+      "view": "Dettaglio Libro",
+      "update": "Aggiorna Libro"
+    }
+  },
+  "errors": {
+    "errorInsert": "Errore durante l'operazione di inserimento",
+    "errorUpdate": "Errore durante l'operazione di aggiornamento",
+    "errorDelete": "Errore durante l'operazione di eliminazione",
+    "errorData": "Errore validazione dei dati",
+    "errorRoles": "Utente non abilitato",
+    "fieldRequired": "Campo obbligatorio",
+    "name": "Nome obbigatorio",
+    "base": "Indirizzo base obbigatorio",
+    "clientId": "Client ID obbligatorio",
+    "clientSecret": "Client secret obbligatorio",
+    "ssoStrategy": "Strategia obbligatoria",
+    "postLogoutURI": "Indirizzo post Logout obbligatorio"
+  },
+  "bookmanager": {
+    "be": {
+      "id": {
+        "null": "Il campo id non può essere vuoto."
+      },
+      "isbn": {
+        "null": "Il campo isbn non può essere vuoto.",
+        "format": {
+          "wrong": "Il formato dell'isbn è errato."
+        },
+        "outofrange": "Il codice supera la lunghezza massima consentita."
+      },
+      "author": {
+        "format": {
+          "wrong": "Il formato dell'autore è errato."
+        },
+        "outofrange": "L'autore supera la lunghezza massima consentita."
+      },
+      "title": {
+        "format": {
+          "wrong": "Il formato del titolo è errato."
+        },
+        "outofrange": "Il titolo supera la lunghezza massima consentita."
+      },
+      "field": {
+        "invalid": "Valore non supportato.",
+        "outofrange": "Il campo supera la lunghezza massima consentita."
+      },
+      "book": {
+        "notfound": "Libro non trovato.",
+        "isbn": {
+          "duplicated": "Isbn già presente."
+        }
+      },
+      "refresh": {
+        "otpmanager": {
+          "notfound": "Nessuna istanza trovata."
+        },
+        "serviceinvocationerror": "Errore durante l'invocazione del servizio esterno di recupero URI.",
+        "authenticationerror": "Errore di autenticazione.",
+        "uriconversionerror": "Errore durante la conversione URI."
+      },
+      "persistence": {
+        "error": "Errore durante il salvataggio."
+      },
+      "jwt": {
+        "parse": {
+          "error": "Errore durante la decodifica del JWT."
+        },
+        "claims": {
+          "notfound": "JWT claim non presente."
+        }
+      }
+    }
+  },
+  "book": "Libro"
+}
