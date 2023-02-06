@@ -1,6 +1,0 @@
-{
-  "serverUrl": "http://localhost:9080/api/v1",
-  "defaultLanguage": "en-EN",
-  "supportedLanguages": "['en-EN']",
-  "defaultDateTimeFormat": "dd/MM/yyyy HH:mm"
-}
