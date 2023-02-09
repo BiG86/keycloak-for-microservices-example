@@ -1,0 +1,6 @@
+{
+  "serverUrl": "http://book-manager-be:8081/api/v1",
+  "defaultLanguage": "en-EN",
+  "supportedLanguages": "['en-EN']",
+  "defaultDateTimeFormat": "dd/MM/yyyy HH:mm"
+}

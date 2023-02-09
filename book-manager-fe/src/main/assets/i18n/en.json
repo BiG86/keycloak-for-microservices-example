@@ -1,0 +1,160 @@
+{
+  "language": {
+    "it": "Italian",
+    "en": "English"
+  },
+  "common": {
+    "name": "Name",
+    "update": "Update",
+    "remove": "Delete",
+    "add": "New",
+    "details": "Details",
+    "titleDeleteConfirm": "Confirm",
+    "descDeleteConfirm": "Do you confirm the cancellation?",
+    "ok": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "back": "Back",
+    "close": "Close details",
+    "attention": "Attention",
+    "vis": "View",
+    "updateOk": "Successful update!",
+    "welcome": "Welcome ",
+    "forbidden": "Unauthorized page",
+    "notfound": "This page does not exist",
+    "saveOk": "Saving successfully!",
+    "notFound": "Not found",
+    "new": "New",
+    "refresh": "Refresh",
+    "insDate": "Insert Date",
+    "updDate": "Update Date",
+    "user": "User",
+    "export": "Export",
+    "invalidateCache": "Invalidate cache",
+    "selApplication": "Select application",
+    "selCode": "Select a code",
+    "selTypeOperation": "Select type of operation",
+    "selOtpEncr": "Select otp encryption",
+    "selChannel": "Select channel",
+    "selAlghoritm": "Select book",
+    "book": "Select book",
+    "operationType": "Select type of operation",
+    "logout": "Logout"
+  },
+  "pagination": {
+    "element": "Items per page",
+    "search": "Search",
+    "10": "10",
+    "20": "20",
+    "50": "50",
+    "100": "100"
+  },
+  "column": {
+    "action": "Action"
+  },
+  "navbar": {
+    "sessions": "Sessions",
+    "filter": "SSO filter"
+  },
+  "header": {
+    "titleConfiguration": "Tables"
+  },
+  "book": {
+    "title": "Books",
+    "subTitle": " ... ",
+    "isbn": "ISBN",
+    "btitle": "Title",
+    "author": "Author",
+    "modal": {
+      "new": "New Book",
+      "view": "Book Details",
+      "update": "Update Book"
+    }
+  },
+  "errors": {
+    "errorInsert": "Error during insert operation",
+    "errorUpdate": "Error during the update operation",
+    "errorDelete": "Error during the delete operation",
+    "errorData": "Data validation error",
+    "errorRoles": "Unauthorized user",
+    "fieldRequired": "Required field",
+    "name": "Name required",
+    "base": "Base address required",
+    "clientId": "Client ID required",
+    "clientSecret": "Client secret required",
+    "ssoStrategy": "SSO Strategy obbligatoria",
+    "postLogoutURI": "Post Logout address required",
+    "errorURI": "Error address required",
+    "errorValue": "Field 'value' is required.",
+    "errorFactory": "Field 'factory' of Predicate is required.",
+    "errorCond": "Field 'condizione' of Predicate is required.",
+    "errorArgs": "Field 'argomento' of Predicate is required.",
+    "errorFactoryFilter": "Field 'factory' of Predicate is required.",
+    "errorArgsFilter": "Field 'argomento' of Predicate is required.",
+    "selectLevel": "Select logging level",
+    "errorPredicates": "Write at least one predicate",
+    "erroruri": "Field 'Address of redirect' is required",
+    "errorError": "Field 'Error' is required",
+    "errorUriDefault": "Il default deve essere impostato solo su un reindirizzamento",
+    "book": "Select a book",
+    "algoritmBe": "Algoritm not found",
+    "code": "Code is required",
+    "codePattern": "The code is not valid",
+    "descPattern": "Description is not valid"
+  },
+  "otpmanageradmin": {
+    "be": {
+      "enum": {
+        "invalid": "Il valore dell'enumerativo non è valido"
+      },
+      "id": {
+        "null": "Il campo id non può essere vuoto."
+      },
+      "code": {
+        "null": "Il campo codice non può essere vuoto.",
+        "format": {
+          "wrong": "Il formato del codice è errato."
+        },
+        "outofrange": "Il codice supera la lunghezza massima consentita."
+      },
+      "otpBook": {
+        "null": "Select a book."
+      },      
+      "description": {
+        "format": {
+          "wrong": "Il formato della descrizione è errato."
+        },
+        "outofrange": "La descrizione supera la lunghezza massima consentita."
+      },
+      "field": {
+        "invalid": "Il valore specificato non è attualmente supportato dall'OTP Manager.",
+        "outofrange": "Il valore specificato supera il massimo consentito."
+      },
+      "book": {
+        "notfound": "Book not found.",
+        "code": {
+          "duplicated": "Book already present."
+        }
+      },      
+      "refresh": {
+        "otpmanager": {
+          "notfound": "Nessuna istanza di OTP Manager trovata."
+        },
+        "serviceinvocationerror": "Errore durante l'invocazione del servizio esterno di recupero URI OTP Manager.",
+        "authenticationerror": "Errore di autenticazione.",
+        "uriconversionerror": "Errore durante la conversione URI OTP Manager."
+      },
+      "persistence": {
+        "error": "Errore durante il salvataggio."
+      },
+      "jwt": {
+        "parse": {
+          "error": "Errore durante la decodifica del JWT."
+        },
+        "claims": {
+          "notfound": "JWT claim non presente."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.content {
+  width: 100%;
+}
+
+.paragraphs {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.text-label {
+  font-weight: bold;
+}
+
+.custom-checkbox {
+  margin-bottom: 0px;
+  margin-top: 20%;
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+}
+.custom-checkbox input {
+  width: 20px;
+  height: 20px;
+}
+.custom-checkbox label {
+  margin-left: 10px;
+}

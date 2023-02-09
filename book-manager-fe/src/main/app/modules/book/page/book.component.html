@@ -1,0 +1,19 @@
+<div class="m-5">
+  <h1>{{'book.title' | translate}}</h1>
+  <div class="d-flex flex-column flex-sm-row justify-content-end gap-2 my-2">
+
+    <button class="btn btn-outline-primary btn-sm" (click)="refreshData()">
+      {{'common.refresh' | translate}}
+    </button>
+
+    <button class="btn btn-outline-primary btn-sm" (click)="createButton()" *ngIf="showButtonRole">
+      {{'common.add' | translate}}
+    </button>
+
+  </div>
+  <div>
+    <app-table [data]="data" [actions]="actions" (pageChangeEmit)="pageChangeReload($event)"
+               (pageSizeChangeEmit)="pageSizeChangeReload($event)"
+               (sortColumnEmit)="sortColumnReload($event)"></app-table>
+  </div>
+</div>

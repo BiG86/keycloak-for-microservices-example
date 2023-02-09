@@ -1,0 +1,173 @@
+{
+  "language": {
+    "it": "Italiano",
+    "en": "Inglese"
+  },
+  "common": {
+    "name": "Nome",
+    "update": "Modifica",
+    "remove": "Elimina",
+    "add": "Nuovo",
+    "details": "Dettagli",
+    "titleDeleteConfirm": "Conferma",
+    "descDeleteConfirm": "Confermi la cancellazione ?",
+    "ok": "Conferma",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "back": "Indietro",
+    "close": "Chiudi",
+    "attention": "Attenzione",
+    "vis": "Visualizza",
+    "updateOk": "Aggiornamento effettuato con successo!",
+    "welcome": "Bevenuto nel nuovo admin",
+    "forbidden": "Pagina non autorizzata",
+    "notfound": "Pagina inesistente",
+    "saveOk": "Salvataggio effettuato con successo!",
+    "notFound": "Non inserito",
+    "new": "Nuova",
+    "refresh": "Aggiorna",
+    "insDate": "Data inserimento",
+    "updDate": "Data modifica",
+    "user": "Utente",
+    "export": "Esporta",
+    "invalidateCache": "Invalida cache",
+    "selApplication": "Seleziona l'applicazione",
+    "selCode": "Seleziona un codice",
+    "selTypeOperation": "Seleziona il tipo di operazione",
+    "selOtpEncr": "Seleziona otp encryption",
+    "selChannel": "Seleziona il canale",
+    "selAlghoritm": "Seleziona l'algoritmo",
+    "book": "Selezionare un algoritmo",
+    "operationType": "Scegliere un tipo di operazione",
+    "logout": "Logout"
+  },
+  "pagination": {
+    "element": "Righe per pagina",
+    "search": "Ricerca",
+    "10": "10",
+    "20": "20",
+    "50": "50",
+    "100": "100"
+  },
+  "column": {
+    "action": "Azioni"
+  },
+  "navbar": {
+    "sessions": "Sessioni",
+    "filter": "Filtro SSO"
+  },
+  "header": {
+    "titleConfiguration": "Tabelle"
+  },
+  "book": {
+    "title": "Libri",
+    "subTitle": " ... ",
+    "isbn": "ISBN",
+    "btitle": "Titolo",
+    "author": "Autore",
+    "modal": {
+      "new": "Nuovo Libro",
+      "view": "Dettaglio Libro",
+      "update": "Aggiorna Libro"
+    }
+  },
+  "errors": {
+    "errorInsert": "Errore durante l'operazione di inserimento",
+    "errorUpdate": "Errore durante l'operazione di aggiornamento",
+    "errorDelete": "Errore durante l'operazione di eliminazione",
+    "errorData": "Errore validazione dei dati",
+    "errorRoles": "Utente non abilitato",
+    "fieldRequired": "Campo obbligatorio",
+    "name": "Nome obbigatorio",
+    "base": "Indirizzo base obbigatorio",
+    "clientId": "Client ID obbligatorio",
+    "clientSecret": "Client secret obbligatorio",
+    "ssoStrategy": "Strategia obbligatoria",
+    "postLogoutURI": "Indirizzo post Logout obbligatorio",
+    "errorURI": "Indirizzo di errore obbligatorio",
+    "errorValue": "Il campo 'value' è obbligatorio.",
+    "errorFactory": "Il campo 'factory' di Predicati è obbligatorio.",
+    "errorCond": "Il campo 'condizione' di Predicati è obbligatorio.",
+    "errorArgs": "Il campo 'argomento' di Predicati è obbligatorio.",
+    "errorFactoryFilter": "Il campo 'factory' di Filtri è obbligatorio.",
+    "errorArgsFilter": "Il campo 'argomento' di Filtri è obbligatorio.",
+    "selectLevel": "Selezionare il livello di logging",
+    "errorPredicates": "E' obbligatorio inserire almeno un predicato",
+    "erroruri": "Il campo 'Indirizzo di redirect' è obbligatorio",
+    "errorError": "Il campo 'Errore' è obbligatorio",
+    "errorUriDefault": "Il default deve essere impostato solo su un reindirizzamento",
+    "expireIn": "Inserire una scadenza valida",
+    "maximumConcurrentOperation": "Inserire un valore da 1 a 1000",
+    "maximumRetryCount": "Inserire un valore da 1 a 1000",
+    "minimumCreationInterval": "Inserire un intervallo valido",
+    "regex": "Inserire il pattern di validazione del codice OTP",
+    "otpSize": "Inserire OtpSize o controllare il valore con 'maxSize' dell'algoritmo",
+    "book": "Selezionare un algortmo",
+    "code": "Il codice è obbligatorio",
+    "codePattern": "Il codice inserito non è valido",
+    "descPattern": "La descrizione non è valida",
+    "domain": "Inserire un dominio"
+  },
+  "otpmanageradmin": {
+    "be": {
+      "enum": {
+        "invalid": "Il valore dell'enumerativo non è valido"
+      },
+      "id": {
+        "null": "Il campo id non può essere vuoto."
+      },
+      "code": {
+        "null": "Il campo codice non può essere vuoto.",
+        "format": {
+          "wrong": "Il formato del codice è errato."
+        },
+        "outofrange": "Il codice supera la lunghezza massima consentita."
+      },
+      "otpBook": {
+        "null": "Selezionare il libro."
+      },
+      "description": {
+        "format": {
+          "wrong": "Il formato della descrizione è errato."
+        },
+        "outofrange": "La descrizione supera la lunghezza massima consentita."
+      },
+      "field": {
+        "invalid": "Il valore specificato non è attualmente supportato dall'OTP Manager.",
+        "outofrange": "Il valore specificato supera il massimo consentito."
+      },
+      "protection": {
+        "activated": "A causa dell'intenso traffico il servizio non è attualmente disponibile. Si prega di riprovare più tardi."
+      },
+      "book": {
+        "notfound": "Algoritmo non trovato.",
+        "code": {
+          "duplicated": "Algoritmo già esistente."
+        },
+        "inUse": "L'algoritmo non può essere eliminato perché in uso."
+      },
+      "authorizationcode": {
+        "notfound": "Authorization Code non trovato."
+      },
+      "refresh": {
+        "otpmanager": {
+          "notfound": "Nessuna istanza di OTP Manager trovata."
+        },
+        "serviceinvocationerror": "Errore durante l'invocazione del servizio esterno di recupero URI OTP Manager.",
+        "authenticationerror": "Errore di autenticazione.",
+        "uriconversionerror": "Errore durante la conversione URI OTP Manager."
+      },
+      "persistence": {
+        "error": "Errore durante il salvataggio."
+      },
+      "jwt": {
+        "parse": {
+          "error": "Errore durante la decodifica del JWT."
+        },
+        "claims": {
+          "notfound": "JWT claim non presente."
+        }
+      }
+    }
+  }
+}

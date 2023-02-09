@@ -1,0 +1,87 @@
+<ng-template #readonlyTemplateRef>
+  <div class="box-container p-3">
+    <div class="row">
+      <div class="col"><label class="d-inline-block ml-2 text-label">
+        {{'book.isbn' | translate}}</label>: {{book.isbn}
+      </div>
+      <div class="col"><label class="d-inline-block ml-2 text-label">
+        {{'book.btitle' | translate}}</label>: {{book.title}}
+      </div>
+      <div class="col"><label class="d-inline-block ml-2 text-label">
+        {{'book.author' | translate}}</label>: {{book.author}}
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <label class="d-inline-block ml-2 text-label">{{'common.insDate' | translate}}</label>: {{book.activities.dateInsert | date: 'dd/MM/yyyy HH:mm'}}
+      </div>
+      <div class="col">
+        <label class="d-inline-block ml-2 text-label">{{'common.updDate' | translate}}</label>: {{book.activities.dateModify | date: 'dd/MM/yyyy HH:mm'}}
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #readWriteTemplateRef>
+  <div class="d-flex">
+    <form [formGroup]="editForm" id="edit-modal-form" class="content">
+      <div class="row mt-3">
+        <div class="col-12">
+          <label class="form-label" for="isbn">{{'book.isbn' | translate}}</label>
+          <input class="form-control"
+                 maxlength="255"
+                 type="text" id="isbn" name="isbn"
+                 formControlName="formRefCode"/>
+          <div *ngIf="showErrors && editForm?.controls?.formRefCode?.hasError('required')" class="mt-1 error">
+            {{ 'errors.fieldRequired' | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-8">
+          <label class="form-label" for="title">{{'book.btitle' | translate}}</label>
+          <input class="form-control"
+                 maxlength="255"
+                 type="text" id="title" name="title"
+                 formControlName="formRefDescription"/>
+          <div *ngIf="showErrors && editForm?.controls?.formRefDescription?.hasError('pattern')" class="mt-1 error">
+            {{ 'errors.descPattern' | translate }}
+          </div>
+          <div *ngIf="showErrors && editForm?.controls?.formRefDescription?.hasError('required')" class="mt-1 error">
+            {{ 'errors.fieldRequired' | translate }}
+          </div>
+        </div>
+        <div class="col-4">
+            <label class="form-label" for="author">{{'book.author' | translate}}</label>
+            <input class="form-control"
+                   type="number" id="author" name="author"
+                   formControlName="formRefOtpSize"/>
+          <div *ngIf="showErrors && editForm?.controls?.formRefOtpSize?.hasError('required')" class="mt-1 error">
+            {{ 'errors.fieldRequired' | translate }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<app-common-dialog-modal
+  [showCancelButton]="!readonly"
+  [showConfirm]="true"
+  [dirty]="editForm?.dirty"
+  [modalTitleKey]="dialogTitle"
+  [buttonConfirmKey]="readonly ? 'common.close' : 'common.save'"
+  (confirmAction)="confirmHandler($event)"
+  (closeAction)="closeHandler($event)"
+  (discardAction)="discardHandler($event)">
+
+
+  <ng-container [ngSwitch]="readonly">
+    <ng-container *ngSwitchCase="true">
+      <ng-container *ngTemplateOutlet="readonlyTemplateRef"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="false">
+      <ng-container *ngTemplateOutlet="readWriteTemplateRef"></ng-container>
+    </ng-container>
+  </ng-container>
+
+</app-common-dialog-modal>
