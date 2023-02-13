@@ -2,7 +2,7 @@
   <div class="box-container p-3">
     <div class="row">
       <div class="col"><label class="d-inline-block ml-2 text-label">
-        {{'book.isbn' | translate}}</label>: {{book.isbn}
+        {{'book.isbn' | translate}}</label>: {{book.isbn}}
       </div>
       <div class="col"><label class="d-inline-block ml-2 text-label">
         {{'book.btitle' | translate}}</label>: {{book.title}}
@@ -30,8 +30,8 @@
           <input class="form-control"
                  maxlength="255"
                  type="text" id="isbn" name="isbn"
-                 formControlName="formRefCode"/>
-          <div *ngIf="showErrors && editForm?.controls?.formRefCode?.hasError('required')" class="mt-1 error">
+                 formControlName="formRefIsbn"/>
+          <div *ngIf="showErrors && editForm?.controls?.formRefIsbn?.hasError('required')" class="mt-1 error">
             {{ 'errors.fieldRequired' | translate }}
           </div>
         </div>
@@ -42,20 +42,20 @@
           <input class="form-control"
                  maxlength="255"
                  type="text" id="title" name="title"
-                 formControlName="formRefDescription"/>
-          <div *ngIf="showErrors && editForm?.controls?.formRefDescription?.hasError('pattern')" class="mt-1 error">
+                 formControlName="formRefTitle"/>
+          <div *ngIf="showErrors && editForm?.controls?.formRefTitle?.hasError('pattern')" class="mt-1 error">
             {{ 'errors.descPattern' | translate }}
           </div>
-          <div *ngIf="showErrors && editForm?.controls?.formRefDescription?.hasError('required')" class="mt-1 error">
+          <div *ngIf="showErrors && editForm?.controls?.formRefTitle?.hasError('required')" class="mt-1 error">
             {{ 'errors.fieldRequired' | translate }}
           </div>
         </div>
         <div class="col-4">
             <label class="form-label" for="author">{{'book.author' | translate}}</label>
             <input class="form-control"
-                   type="number" id="author" name="author"
-                   formControlName="formRefOtpSize"/>
-          <div *ngIf="showErrors && editForm?.controls?.formRefOtpSize?.hasError('required')" class="mt-1 error">
+                   type="text" id="author" name="author"
+                   formControlName="formRefAuthor"/>
+          <div *ngIf="showErrors && editForm?.controls?.formRefAuthor?.hasError('required')" class="mt-1 error">
             {{ 'errors.fieldRequired' | translate }}
           </div>
         </div>

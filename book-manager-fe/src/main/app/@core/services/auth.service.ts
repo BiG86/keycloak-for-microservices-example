@@ -61,8 +61,7 @@ export class AuthService {
     const encoded = AuthService.auth.keycloak.token.split('.')[1];
     const userDetails = JSON.parse(this.urlBase64Decode(encoded));
     return (
-      userDetails.resource_access &&
-      userDetails.resource_access[AuthService.auth.keycloak.clientId].roles
+      'ROLE_ADMIN_BOOK_MANAGER'
     );
   }
 

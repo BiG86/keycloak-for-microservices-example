@@ -23,7 +23,7 @@ export abstract class BaseDialogComponent {
     // Notification service
     public notificationService: NotificationService,
     // Translate service
-    public transateService: TranslateService
+    public translateService: TranslateService
   ) {
     this.showErrors = false;
     this.dialogTitle = data.dialogTitle;

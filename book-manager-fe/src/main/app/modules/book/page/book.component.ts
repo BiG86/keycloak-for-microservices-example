@@ -154,8 +154,6 @@ export class BookComponent extends BaseListComponent implements OnInit {
     this.openDetailDialog(book, false, true);
   }
 
-
-
   private buildTableActions() {
     if (this.showButtonRole) {
       this.actions = [

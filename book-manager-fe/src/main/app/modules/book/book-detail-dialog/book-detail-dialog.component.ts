@@ -25,9 +25,9 @@ export class BookDetailDialogComponent extends BaseDialogComponent implements On
      public configurationLoader: ConfigurationLoader,
      public bookService: BookService,
      public notificationService: NotificationService,
-     public transateService: TranslateService
+     public translateService: TranslateService
   ) {
-    super(data, dialogRef, configurationLoader, notificationService, transateService);
+    super(data, dialogRef, configurationLoader, notificationService, translateService);
     this.book = data.customData.content;
 
     if (!this.readonly) {
@@ -38,15 +38,11 @@ export class BookDetailDialogComponent extends BaseDialogComponent implements On
   ngOnInit(): void {
   }
 
-  /**
-   * Inizializzazione del form del dettaglio per la modifica
-   * @pri
-   */
   private initForm(): void {
     this.editForm = new FormGroup({
-      formRefDescription: new FormControl(this.book.title ),
-      formRefCode: new FormControl(this.book.isbn, Validators.required),
-      formRefOtpSize: new FormControl(this.book.author, Validators.required)
+      formRefTitle: new FormControl(this.book.title, Validators.required),
+      formRefIsbn: new FormControl(this.book.isbn, Validators.required),
+      formRefAuthor: new FormControl(this.book.author, Validators.required)
     })
   }
 
@@ -62,9 +58,9 @@ export class BookDetailDialogComponent extends BaseDialogComponent implements On
     this.showErrors = false;
     const request: Book = {
       id: this.book.id ? this.book.id : null,
-      author: this.editForm.controls.form.value,
-      isbn: this.editForm.controls.form.value,
-      title: this.editForm.controls.form.value
+      author: this.editForm.controls.formRefAuthor.value,
+      isbn: this.editForm.controls.formRefIsbn.value,
+      title: this.editForm.controls.formRefTitle.value
     };
 
     if (this.book.id) {
@@ -74,7 +70,7 @@ export class BookDetailDialogComponent extends BaseDialogComponent implements On
           this.dialogRef.close(event);
         },
         error => {
-          this.notificationService.showError(this.transateService.instant('errors.errorUpdate'),'Book update');
+          this.notificationService.showError(this.translateService.instant('errors.errorUpdate'),'Book update');
         }
       );
     } else {
@@ -84,11 +80,9 @@ export class BookDetailDialogComponent extends BaseDialogComponent implements On
           this.dialogRef.close(event);
         },
         error => {
-          this.notificationService.showError( this.transateService.instant('errors.errorInsert'),'Book creation');
+          this.notificationService.showError( this.translateService.instant('errors.errorInsert'),'Book creation');
         }
       );
     }
   }
-
-
 }
