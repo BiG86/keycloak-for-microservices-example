@@ -52,6 +52,17 @@ services:
       - keycloak
     networks:
       - book-network
+  book-manager-fe:
+    image: snorc/book-manager-fe:1.0.0
+    container_name: book-manager-fe
+    restart: always
+    ports:
+      - "4200:80"
+    depends_on:
+      - keycloak
+      - book-manager-be
+    networks:
+      - book-network
 volumes:
   volume-percona:
     name: book-manager-mysql
