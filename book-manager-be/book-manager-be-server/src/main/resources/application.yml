@@ -27,19 +27,11 @@ management:
 logging:
   level:
     root: ${LOGGING_LEVEL:DEBUG}
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: ${FEIGN_CLIENT_CONNECTION_TIMEOUT:5000}
-        readTimeout: ${FEIGN_CLIENT_READ_TIMEOUT:5000}
-        loggerLevel: ${FEIGN_CLIENT_LOGGER_LEVEL:basic}
 validation:
   regex:
-    code: ${CODE_REGEX:^[0-9A-Za-z-_]+$}
-    description-fe: ${DESCRIPTION_FE_REGEX:^[0-9A-Za-zÀ-ÿ\s-_.,\'\"]*$}
-    description-be: ${DESCRIPTION_BE_REGEX:^((&#\d{1,2};)*[0-9A-Za-zÀ-ÿ\s-_.,\'\"]*)+$}
-    domain: ${DOMAIN_REGEX:((?:(?:(?:http)s?:)?\/\/)?(?:(?:[a-zA-Z0-9]+)\.?)*(?:(?:[a-zA-Z0-9]+))\.[a-zA-Z0-9]{2,3})}
+    isbn: ${ISBN_REGEX:^[0-9A-Za-z-_]+$}
+    title: ${TITLE_REGEX:^[0-9A-Za-z-_]+$}
+    author: ${AUTHOR_REGEX:^[0-9A-Za-z-_]+$}
 pagination:
   default:
     page-size: ${PAGINATION_DEFAULT_PAGE_SIZE:10}

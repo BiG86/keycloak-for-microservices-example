@@ -1,6 +1,8 @@
 package it.snorcini.dev.bookmanager.dto;
 
 import it.snorcini.dev.bookmanager.error.BookManagerValidationErrors;
+import it.snorcini.dev.bookmanager.validation.PatternConstraint;
+import it.snorcini.dev.bookmanager.validation.PatternConstraintValidator;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,6 +12,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * DTO used for creation of a Book.
@@ -32,14 +35,23 @@ public class BookDTO extends AbstractBaseDTO {
 
     @Valid
     @NotNull(message = BookManagerValidationErrors.ISBN_NULL)
+    @PatternConstraint(fieldType = PatternConstraintValidator.PatternConstraintFieldEnum.ISBN,
+            message = "bookmanager.be.isbn.format.wrong")
+    @Size(max = 255)
     protected String isbn;
 
     @Valid
     @NotNull(message = BookManagerValidationErrors.TITLE_NULL)
+    @PatternConstraint(fieldType = PatternConstraintValidator.PatternConstraintFieldEnum.TITLE,
+            message = "bookmanager.be.title.format.wrong")
+    @Size(max = 255)
     protected String title;
 
     @Valid
     @NotNull(message = BookManagerValidationErrors.AUTHOR_NULL)
+    @PatternConstraint(fieldType = PatternConstraintValidator.PatternConstraintFieldEnum.AUTHOR,
+            message = "bookmanager.be.author.format.wrong")
+    @Size(max = 255)
     protected String author;
 
     /**
